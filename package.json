@@ -1,7 +1,6 @@
 {
-  "name": "express-example",
+  "name": "MathAttackModel",
   "version": "0.0.1",
-  "description": "MathAttack backend",
   "engines": {
     "node": "v6.x"
   },
@@ -20,4 +19,3 @@
     "stylus": "0.54.5"
   }
 }
-
