@@ -4,3 +4,17 @@ block content
   h1= title
   p Welcome to #{title}
   p challenging young minds to challenge the world!
+  br
+  p Enter your name to get started:
+  form(method="post")
+    | <br>
+    | Username
+    input(
+    type='text'
+    name='username'
+    value= locals.user
+    )
+    input(
+    type='submit'
+    value='submit'
+    )
