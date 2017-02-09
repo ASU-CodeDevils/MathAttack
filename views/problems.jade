@@ -2,7 +2,18 @@ extends layout
 
 block content
     h1= title
-    p Welcome to Math Attack
-    p Click the button to start your first problem
-
-    p= firstTerm operator secondTerm
+    p Here is the first problem #{name}
+    term1=firstTerm
+    op= operator
+    term2= secondTerm
+    br
+    form(method="post")
+        input(
+        type='text'
+        name='username'
+        value=' '
+        )
+        input(
+        type='submit'
+        value='submit'
+        )

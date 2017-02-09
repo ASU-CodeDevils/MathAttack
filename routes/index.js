@@ -1,21 +1,27 @@
 var express = require('express');
 var router = express.Router();
 var url = require('url');
-var mathGen = require('../lib/math');
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  var username = url.parse(req.url, true);
+var math = require('../lib/math');
+var body = require('body-parser');
 
-  res.render('index', { title: 'MathAttack' });
+
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Welcome to MathAttack' });
 });
 router.post('/', function(req, res, next) {
-  res.redirect('login', { title: 'Login Successful' });
-});
-router.post('/login', function(req, res, next) {
-  var problem = mathGen.expressionGen();
-  res.render('problems', { title: 'Solve the problem below:',
-      firstTerm: problem.firstTerm, secondTerm: problem.secondTerm, operator: problem.operation, answer: problem.answer
+  var username = req.body.username;
+  var problem = math.expressionGen();
+  res.render('problems', { title: 'Problem',
+      firstTerm: problem.firstTerm,
+      operator: problem.operation,
+      secondTerm: problem.secondTerm,
+      answer: problem.answer,
+      name: username
   });
+  console.log("username " + username);
+});
+router.post('problems', function(req, res, next) {
+  console.log("WORKED")
 });
 
 module.exports = router;
